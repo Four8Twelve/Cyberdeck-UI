@@ -97,7 +97,7 @@ li a:hover{
   }
 }
 
-.clock {
+.clock { /* Clock container */
   margin-top:100px;
   position: relative;
   top: 135px;
