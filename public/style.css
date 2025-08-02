@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Orbitron";
+    text-decoration: none;
+    scroll-behavior: smooth;
+    list-style: none;
+}
+
+body {
+    background-color: #18181b; /* Cyberpunk dark background */
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    background-color: rgb(45, 45, 45);
+    padding: 2rem 0;
+    border-radius: 0;
+    z-index: 1000;   
+}
+
+.logo{
+    font-size: 5rem;
+    font-weight: 600;
+    color: #79bf72;
+    text-wrap: nowrap;
+    transition: 0.3s ease-in-out;
+}
+
+.logo:hover{
+    color: #56e249;
+    transform: scale(1.05);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-subtext {
+  font-size: 1rem;
+  color: #588054;
+  margin-top: 4px;
+}
+
+.nav-links{
+    display: flex;
+    gap: 10rem;
+}
+li a{
+    color: #588054;
+    font-size: 2rem;
+    font-weight: 300;
+    position: relative;
+}
+
+li a::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    border-radius: 1rem;
+    background-color: #56e249;
+    transition: width 0.3s ease-in-out;
+}
+
+li a:hover::before{
+    width: 110%;
+}
+
+li a:hover{
+    color: #56e249;
+}
+
+
+@media (max-width: 800px) {
+  header {
+    gap: 1rem;
+    flex-direction: column;
+  }
+  .nav-links {
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+.clock {
+  margin-top:100px;
+  position: relative;
+  top: 135px;
+  left: 40px;
+  font-size: 3rem;
+  color: #79bf72;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.digital-time {
+  display: flex;
+}
+
+.alarm {
+  position: relative;
+  margin-top: 200px;
+  left: 40px;
+  gap: 10px;
+  font-size: 3rem;
+  color: #79bf72;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+#ampmSelect {
+  color: gray;
+}
+
+#ampmSelect option:not([value=""]) {
+  color: black;
+}
+
+/* When a real option is selected */
+#ampmSelect:valid {
+  color: black;
+}
+
+.alarm-container {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  background: #5c5959;
+  border-radius: 12px;
+  box-shadow: 10px 10px 10px rgba(106, 160, 81, 0.792);
+  max-width: 600px;
+}
+
+/* When a valid selection (AM or PM) is made, change the color */
+#ampmSelect:valid {
+  color: black;
+}
+
+.alarm-container input,
+.alarm-container select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 90px;
+  transition: border-color 0.3s ease;
+}
+
+.alarm-container input:focus,
+.alarm-container select:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.alarmButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.alarmButton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.alarmButton:active {
+  transform: scale(0.97);
+}

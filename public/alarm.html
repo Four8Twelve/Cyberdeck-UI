@@ -1,0 +1,38 @@
+
+<div id="header-placeholder"></div>
+<script src="header-loader.js"></script>
+
+<body>
+    <div id="header-spacer"></div>
+    <div class="clock">
+        <div id="date">Loading...</div>
+        <ul class="digital-time">
+            <li id="hours">00</li>
+            <li id="point">:</li>
+            <li id="minutes">00</li>
+            <li id="point">:</li>
+            <li id="seconds">00</li>
+            <li id="ampm"> AM</li>
+        </ul>
+    </div>
+    <script src="clock.js"></script>
+
+    <section class="Alarm" id="Alarm">
+        <h4 class="section-title">Alarm</h4>
+        <div class="alarm-container">
+            <input type="number" min = 1 max = 12 id="alarmHour" placeholder="hour"> 
+            <input type="number" min = 0 max = 59 id="alarmMinute" placeholder="minute">
+            <select id="ampmSelect" required>
+                <option value="" disabled selected>AM/PM</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+            <button class="alarmButton">Set Alarm</button>
+            <button class="alarmButton" id="stopAlarm">Stop Alarm</button>
+        </div>
+    </section>
+    <audio id="alarmSound" src="alarm_15.mp3" preload="auto"></audio>
+    <script src="alarm.js"></script>
+</body>
+
+</html>
