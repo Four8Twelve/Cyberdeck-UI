@@ -142,9 +142,8 @@ li a:hover{
   display: flex;
   gap: 10px;
   padding: 20px;
-  background: #5c5959;
+  background: rgb(45, 45, 45);
   border-radius: 12px;
-  box-shadow: 10px 10px 10px rgba(106, 160, 81, 0.792);
   max-width: 600px;
 }
 
