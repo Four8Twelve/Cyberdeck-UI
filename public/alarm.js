@@ -4,6 +4,7 @@ let alarmTime = null; //creating a variable to store the alarm time
 let alarmSet = false; // flag to indicate if the alarm is set
 const alarmAudio = new Audio('alarm_15.mp3');
 let alarmPlaying = false; // flag to indicate if the alarm is currently playing
+let alarms = []; // Array to store multiple alarms
 
 function updateClock() { //Function to update the clock and check for alarm
     const now = new Date(); 
@@ -53,12 +54,32 @@ document.addEventListener('DOMContentLoaded', function () {
         if (ampm == "PM") {
             hours = parseInt(hours, 10) + 12; // Convert PM hours to 24-hour format
         }
-
         console.log(`Set time: ${hours}:${minutes}:${seconds} ${ampm}`);
         alarmTime = `${hours.toString()}:${minutes.toString()}:${seconds} ${ampm}`; // Format the alarm time
+        alarmFormatted = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${ampm}`;
         alarmSet = true;
-        alert(`Alarm set for ${alarmTime}`);
+        alert(`Alarm set for ${alarmFormatted}`);
+        alarms.push(alarmFormatted); // Add the alarm to the list
+        renderAlarms();
     });
+    
+    function renderAlarms() { //WORKING ON This FUNCTION -------------------------------------------------------------------------
+        alarmList.innerHTML = ""; // clear current list
+        alarms.forEach((alarm, index) => {
+            const li = document.createElement("li");
+            li.textContent = alarm + " ";
+
+            const cancelBtn = document.createElement("button");
+            cancelBtn.textContent = "Cancel";
+            cancelBtn.onclick = () => {
+                alarms.splice(index, 1); // remove from array
+                renderAlarms();
+            };
+
+            li.appendChild(cancelBtn);
+            alarmList.appendChild(li);
+        });
+    }
 
     const stopAlarmButton = document.getElementById('stopAlarm');
     stopAlarmButton.addEventListener('click', function () {
@@ -71,5 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("No alarm is currently playing.");
         }
     });
+
+    
+    
 
 });
